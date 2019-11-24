@@ -1,0 +1,244 @@
+===================================
+Execution Stack
+[[print(a);a=2];int a]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+int a
+[print(a);a=2]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+[print(a);a=2]
+
+Symbol Table
+a --> 0
+Output
+[]
+===================================
+Execution Stack
+a=2
+print(a)
+
+Symbol Table
+a --> 0
+Output
+[]
+===================================
+Execution Stack
+print(a)
+
+Symbol Table
+a --> 2
+Output
+[]
+===================================
+Execution Stack
+
+Symbol Table
+a --> 2
+Output
+[2]
+===================================
+Execution Stack
+[print(b);[[b=3*5+2+1;a=3*5+2];[int b;int a]]]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+[[b=3*5+2+1;a=3*5+2];[int b;int a]]
+print(b)
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+[int b;int a]
+[b=3*5+2+1;a=3*5+2]
+print(b)
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+int a
+int b
+[b=3*5+2+1;a=3*5+2]
+print(b)
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+int b
+[b=3*5+2+1;a=3*5+2]
+print(b)
+
+Symbol Table
+a --> 0
+Output
+[]
+===================================
+Execution Stack
+[b=3*5+2+1;a=3*5+2]
+print(b)
+
+Symbol Table
+b --> 0a --> 0
+Output
+[]
+===================================
+Execution Stack
+a=3*5+2
+b=3*5+2+1
+print(b)
+
+Symbol Table
+b --> 0a --> 0
+Output
+[]
+===================================
+Execution Stack
+b=3*5+2+1
+print(b)
+
+Symbol Table
+b --> 0a --> 17
+Output
+[]
+===================================
+Execution Stack
+print(b)
+
+Symbol Table
+b --> 18a --> 17
+Output
+[]
+===================================
+Execution Stack
+
+Symbol Table
+b --> 18a --> 17
+Output
+[18]
+===================================
+Execution Stack
+[print(v);[If(a==true)Then{v=2}Else{v=3};[a=true;[int v;bool a]]]]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+[If(a==true)Then{v=2}Else{v=3};[a=true;[int v;bool a]]]
+print(v)
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+[a=true;[int v;bool a]]
+If(a==true)Then{v=2}Else{v=3}
+print(v)
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+[int v;bool a]
+a=true
+If(a==true)Then{v=2}Else{v=3}
+print(v)
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+bool a
+int v
+a=true
+If(a==true)Then{v=2}Else{v=3}
+print(v)
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+int v
+a=true
+If(a==true)Then{v=2}Else{v=3}
+print(v)
+
+Symbol Table
+a --> false
+Output
+[]
+===================================
+Execution Stack
+a=true
+If(a==true)Then{v=2}Else{v=3}
+print(v)
+
+Symbol Table
+a --> falsev --> 0
+Output
+[]
+===================================
+Execution Stack
+If(a==true)Then{v=2}Else{v=3}
+print(v)
+
+Symbol Table
+a --> truev --> 0
+Output
+[]
+===================================
+Execution Stack
+v=2
+print(v)
+
+Symbol Table
+a --> truev --> 0
+Output
+[]
+===================================
+Execution Stack
+print(v)
+
+Symbol Table
+a --> truev --> 2
+Output
+[]
+===================================
+Execution Stack
+
+Symbol Table
+a --> truev --> 2
+Output
+[2]

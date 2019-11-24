@@ -1,0 +1,167 @@
+===================================
+Execution Stack
+[[CloseFileStatement{newString};[ReadFile{newString,a};ReadFile{newString,a}]];[[[OpenFile{newString};newString = merge.txt];string newString];[a = 2;int a]]]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+[[[OpenFile{newString};newString = merge.txt];string newString];[a = 2;int a]]
+[CloseFileStatement{newString};[ReadFile{newString,a};ReadFile{newString,a}]]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+[a = 2;int a]
+[[OpenFile{newString};newString = merge.txt];string newString]
+[CloseFileStatement{newString};[ReadFile{newString,a};ReadFile{newString,a}]]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+int a
+a = 2
+[[OpenFile{newString};newString = merge.txt];string newString]
+[CloseFileStatement{newString};[ReadFile{newString,a};ReadFile{newString,a}]]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+a = 2
+[[OpenFile{newString};newString = merge.txt];string newString]
+[CloseFileStatement{newString};[ReadFile{newString,a};ReadFile{newString,a}]]
+
+Symbol Table
+a --> 0
+
+Output
+[]
+===================================
+Execution Stack
+[[OpenFile{newString};newString = merge.txt];string newString]
+[CloseFileStatement{newString};[ReadFile{newString,a};ReadFile{newString,a}]]
+
+Symbol Table
+a --> 2
+
+Output
+[]
+===================================
+Execution Stack
+string newString
+[OpenFile{newString};newString = merge.txt]
+[CloseFileStatement{newString};[ReadFile{newString,a};ReadFile{newString,a}]]
+
+Symbol Table
+a --> 2
+
+Output
+[]
+===================================
+Execution Stack
+[OpenFile{newString};newString = merge.txt]
+[CloseFileStatement{newString};[ReadFile{newString,a};ReadFile{newString,a}]]
+
+Symbol Table
+a --> 2
+newString --> 
+
+Output
+[]
+===================================
+Execution Stack
+newString = merge.txt
+OpenFile{newString}
+[CloseFileStatement{newString};[ReadFile{newString,a};ReadFile{newString,a}]]
+
+Symbol Table
+a --> 2
+newString --> 
+
+Output
+[]
+===================================
+Execution Stack
+OpenFile{newString}
+[CloseFileStatement{newString};[ReadFile{newString,a};ReadFile{newString,a}]]
+
+Symbol Table
+a --> 2
+newString --> merge.txt
+
+Output
+[]
+===================================
+Execution Stack
+[CloseFileStatement{newString};[ReadFile{newString,a};ReadFile{newString,a}]]
+
+Symbol Table
+a --> 2
+newString --> merge.txt
+
+Output
+[]
+===================================
+Execution Stack
+[ReadFile{newString,a};ReadFile{newString,a}]
+CloseFileStatement{newString}
+
+Symbol Table
+a --> 2
+newString --> merge.txt
+
+Output
+[]
+===================================
+Execution Stack
+ReadFile{newString,a}
+ReadFile{newString,a}
+CloseFileStatement{newString}
+
+Symbol Table
+a --> 2
+newString --> merge.txt
+
+Output
+[]
+===================================
+Execution Stack
+ReadFile{newString,a}
+CloseFileStatement{newString}
+
+Symbol Table
+a --> 101
+newString --> merge.txt
+
+Output
+[]
+===================================
+Execution Stack
+CloseFileStatement{newString}
+
+Symbol Table
+a --> 102
+newString --> merge.txt
+
+Output
+[]
+===================================
+Execution Stack
+
+Symbol Table
+a --> 102
+newString --> merge.txt
+
+Output
+[]

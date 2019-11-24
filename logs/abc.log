@@ -1,0 +1,161 @@
+===================================
+Execution Stack
+Symbol Table
+
+[]
+===================================
+Execution Stack
+Symbol Table
+
+[]
+===================================
+Execution Stack
+Symbol Table
+a --> 0
+
+[]
+===================================
+Execution Stack
+Symbol Table
+a --> 0
+
+[]
+===================================
+Execution Stack
+Symbol Table
+a --> 2
+
+[]
+===================================
+Execution Stack
+Symbol Table
+a --> 2
+
+[2]
+===================================
+Execution Stack
+Symbol Table
+
+[]
+===================================
+Execution Stack
+Symbol Table
+
+[]
+===================================
+Execution Stack
+Symbol Table
+
+[]
+===================================
+Execution Stack
+Symbol Table
+
+[]
+===================================
+Execution Stack
+Symbol Table
+a --> 0
+
+[]
+===================================
+Execution Stack
+Symbol Table
+b --> 0
+a --> 0
+
+[]
+===================================
+Execution Stack
+Symbol Table
+b --> 0
+a --> 0
+
+[]
+===================================
+Execution Stack
+Symbol Table
+b --> 0
+a --> 17
+
+[]
+===================================
+Execution Stack
+Symbol Table
+b --> 18
+a --> 17
+
+[]
+===================================
+Execution Stack
+Symbol Table
+b --> 18
+a --> 17
+
+[18]
+===================================
+Execution Stack
+Symbol Table
+
+[]
+===================================
+Execution Stack
+Symbol Table
+
+[]
+===================================
+Execution Stack
+Symbol Table
+
+[]
+===================================
+Execution Stack
+Symbol Table
+
+[]
+===================================
+Execution Stack
+Symbol Table
+
+[]
+===================================
+Execution Stack
+Symbol Table
+a --> false
+
+[]
+===================================
+Execution Stack
+Symbol Table
+a --> false
+v --> 0
+
+[]
+===================================
+Execution Stack
+Symbol Table
+a --> true
+v --> 0
+
+[]
+===================================
+Execution Stack
+Symbol Table
+a --> true
+v --> 0
+
+[]
+===================================
+Execution Stack
+Symbol Table
+a --> true
+v --> 2
+
+[]
+===================================
+Execution Stack
+Symbol Table
+a --> true
+v --> 2
+
+[2]

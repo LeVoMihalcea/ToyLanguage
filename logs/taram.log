@@ -1,0 +1,123 @@
+===================================
+Execution Stack
+[[c = a <= b;bool c];[[b = 9;int b];[a = 3;int a]]]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+[[b = 9;int b];[a = 3;int a]]
+[c = a <= b;bool c]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+[a = 3;int a]
+[b = 9;int b]
+[c = a <= b;bool c]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+int a
+a = 3
+[b = 9;int b]
+[c = a <= b;bool c]
+
+Symbol Table
+
+Output
+[]
+===================================
+Execution Stack
+a = 3
+[b = 9;int b]
+[c = a <= b;bool c]
+
+Symbol Table
+a --> 0
+
+Output
+[]
+===================================
+Execution Stack
+[b = 9;int b]
+[c = a <= b;bool c]
+
+Symbol Table
+a --> 3
+
+Output
+[]
+===================================
+Execution Stack
+int b
+b = 9
+[c = a <= b;bool c]
+
+Symbol Table
+a --> 3
+
+Output
+[]
+===================================
+Execution Stack
+b = 9
+[c = a <= b;bool c]
+
+Symbol Table
+b --> 0
+a --> 3
+
+Output
+[]
+===================================
+Execution Stack
+[c = a <= b;bool c]
+
+Symbol Table
+b --> 9
+a --> 3
+
+Output
+[]
+===================================
+Execution Stack
+bool c
+c = a <= b
+
+Symbol Table
+b --> 9
+a --> 3
+
+Output
+[]
+===================================
+Execution Stack
+c = a <= b
+
+Symbol Table
+b --> 9
+a --> 3
+c --> false
+
+Output
+[]
+===================================
+Execution Stack
+
+Symbol Table
+b --> 9
+a --> 3
+c --> true
+
+Output
+[]

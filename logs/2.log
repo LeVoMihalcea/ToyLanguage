@@ -1,0 +1,47 @@
+===================================
+Execution Stack
+[[print(a);a=2];int a]
+
+Symbol Table
+
+[]
+===================================
+Execution Stack
+[print(a);a=2]
+int a
+
+Symbol Table
+
+[]
+===================================
+Execution Stack
+[print(a);a=2]
+
+Symbol Table
+a --> 0
+
+[]
+===================================
+Execution Stack
+print(a)
+a=2
+
+Symbol Table
+a --> 0
+
+[]
+===================================
+Execution Stack
+print(a)
+
+Symbol Table
+a --> 2
+
+[]
+===================================
+Execution Stack
+
+Symbol Table
+a --> 2
+
+[2]
