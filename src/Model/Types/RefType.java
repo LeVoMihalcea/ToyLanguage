@@ -1,5 +1,6 @@
 package Model.Types;
 
+import Model.Values.IntValue;
 import Model.Values.RefValue;
 import Model.Values.Value;
 
@@ -17,6 +18,9 @@ public class RefType implements Type {
         else
             return false;
     }
-    public String toString() { return "Ref(" +inner.toString()+")";}
-    public Value defaultValue() { return new RefValue(0,inner);}
+    public String toString() {
+        return "" +inner.toString();
+    }
+//    public Value defaultValue() { return new IntValue(0);}
+    public Value defaultValue() { return new RefValue(0, inner);}
 }

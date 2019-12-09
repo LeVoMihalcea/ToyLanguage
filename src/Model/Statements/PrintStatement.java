@@ -5,7 +5,7 @@ import Model.PrgState;
 import Model.Values.IntValue;
 import Model.Values.Value;
 
-import java.util.Dictionary;
+import java.util.Map;
 import java.util.List;
 
 public class PrintStatement implements IStatement {
@@ -25,15 +25,14 @@ public class PrintStatement implements IStatement {
 
     @Override
     public PrgState execute(PrgState state) {
-        Dictionary<String, Value> symbolTable = state.getSymbolTable();
+        Map<String, Value> symbolTable = state.getSymbolTable();
         List<Value> output = state.getOutput();
 
-        Value value = expression.evaluate(symbolTable);
-        System.out.println(value.toString());
+        Value value = expression.evaluate(symbolTable, state.getHeap());
         output.add(new IntValue(Integer.parseInt(value.toString())));
         state.setOutput(output);
 
-        return state;
+        return null;
     }
 
     @Override

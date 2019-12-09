@@ -8,7 +8,7 @@ public class IntType implements Type {
         return another instanceof IntType;
     }
     public String toString(){
-        return "int";
+        return "";
     }
 
     @Override

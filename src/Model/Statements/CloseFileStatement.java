@@ -7,12 +7,9 @@ import Model.Types.StringType;
 import Model.Values.StringValue;
 import Model.Values.Value;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.text.MessageFormat;
-import java.util.Dictionary;
+import java.util.Map;
 import java.util.Stack;
 
 public class CloseFileStatement implements IStatement {
@@ -33,8 +30,8 @@ public class CloseFileStatement implements IStatement {
     @Override
     public PrgState execute(PrgState state) {
         Stack<IStatement> stack = state.getExecutionStack();
-        Dictionary<String, Value> symbolTable = state.getSymbolTable();
-        Value value = expression.evaluate(state.getSymbolTable());
+        Map<String, Value> symbolTable = state.getSymbolTable();
+        Value value = expression.evaluate(state.getSymbolTable(), state.getHeap());
 
 
         if(value.getType().equals(new StringType())){
@@ -54,7 +51,7 @@ public class CloseFileStatement implements IStatement {
             throw new SuperCoolException("Value is not a string!");
         }
 
-        return state;
+        return null;
     }
 
     @Override

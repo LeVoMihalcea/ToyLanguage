@@ -10,7 +10,7 @@ import Model.Values.Value;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.Dictionary;
+import java.util.Map;
 import java.util.Stack;
 
 public class OpenReadFileStatement implements IStatement{
@@ -44,8 +44,8 @@ public class OpenReadFileStatement implements IStatement{
             instance of the BufferedReader class created before.
          */
         Stack<IStatement> stack = state.getExecutionStack();
-        Dictionary<String, Value> symbolTable = state.getSymbolTable();
-        Value value = expression.evaluate(state.getSymbolTable());
+        Map<String, Value> symbolTable = state.getSymbolTable();
+        Value value = expression.evaluate(state.getSymbolTable(), state.getHeap());
 
 
         if(value.getType().equals(new StringType())){
@@ -65,7 +65,7 @@ public class OpenReadFileStatement implements IStatement{
             throw new SuperCoolException("Value is not a string!");
         }
 
-        return state;
+        return null;
     }
 
     @Override

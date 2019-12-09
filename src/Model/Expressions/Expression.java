@@ -2,9 +2,9 @@ package Model.Expressions;
 
 import Model.Values.Value;
 
-import java.util.Dictionary;
+import java.util.Map;
 
 public interface Expression {
-    Value evaluate(Dictionary<String, Value> table);
+    Value evaluate(Map<String, Value> table, Map<Integer, Value> heap);
     String toString();
 }

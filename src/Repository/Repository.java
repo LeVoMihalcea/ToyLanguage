@@ -25,13 +25,23 @@ public class Repository implements  IRepository {
     }
 
     @Override
+    public List<PrgState> getPrgList() {
+        return this.programs;
+    }
+
+    @Override
+    public void setPrgList(List<PrgState> toAdd) {
+        this.programs = toAdd;
+    }
+
+    @Override
     public void logProgramStateExecution(PrintWriter logFile, PrgState program)  {
         this.logFile = logFile;
         if(programs.isEmpty())
             throw new SuperCoolException("Repository is empty!");
         else {
             logFile.println("===================================");
-
+            logFile.println("Id: " + program.getId());
             //EXECUTION STACK
             logFile.println("Execution Stack");
             Stack<IStatement> shallowCopy = (Stack<IStatement>) program.getExecutionStack().clone();
@@ -54,11 +64,10 @@ public class Repository implements  IRepository {
             logFile.println("Symbol Table");
             StringBuilder symbols = new StringBuilder();
 
-            Dictionary<String, Value> symbolTable = program.getSymbolTable();
-            Enumeration keys = program.getSymbolTable().keys();
-            String current;
-            while (keys.hasMoreElements()) {
-                current = (String) keys.nextElement();
+            Map<String, Value> symbolTable = program.getSymbolTable();
+            Set<String> strings = program.getSymbolTable().keySet();
+
+            for(String current : strings){
                 symbols.append(current).append(" --> ").append(symbolTable.get(current)).append("\n");
             }
             logFile.println(symbols);
@@ -66,15 +75,18 @@ public class Repository implements  IRepository {
             //OUTPUT
             logFile.println("Output");
             logFile.println(program.getOutput());
+
+            //HEAP
+            logFile.println("Heap");
+            logFile.println(program.getHeap());
         }
     }
 
-    @Override
-    public PrgState getCurrentProgram() {
-        if(programs.isEmpty())
-            throw new SuperCoolException("Repository is empty!");
-        else{
-            return programs.remove(0);
-        }
-    }
+//    @Override
+//    public PrgState getCurrentProgram() {
+//        if(programs.isEmpty())
+//            throw new SuperCoolException("Repository is empty!");
+//        else
+//            return programs.get(0);
+//    }
 }

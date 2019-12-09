@@ -5,7 +5,7 @@ import Model.Types.BoolType;
 import Model.Values.BoolValue;
 import Model.Values.Value;
 
-import java.util.Dictionary;
+import java.util.Map;
 
 public class LogicExpression implements Expression {
     private Expression expression1;
@@ -43,9 +43,9 @@ public class LogicExpression implements Expression {
     }
 
     @Override
-    public Value evaluate(Dictionary<String, Value> table) {
-        Value firstValue = expression1.evaluate(table);
-        Value secondValue = expression2.evaluate(table);
+    public Value evaluate(Map<String, Value> table, Map<Integer, Value> heap) {
+        Value firstValue = expression1.evaluate(table, heap);
+        Value secondValue = expression2.evaluate(table, heap);
 
         if(firstValue.getType().equals(new BoolType())){
             if(secondValue.getType().equals(new BoolType())){

@@ -2,7 +2,7 @@ package Model.Expressions;
 
 import Model.Values.Value;
 
-import java.util.Dictionary;
+import java.util.Map;
 
 public class ValueExpression implements Expression {
     private Value value;
@@ -20,7 +20,7 @@ public class ValueExpression implements Expression {
     }
 
     @Override
-    public Value evaluate(Dictionary<String, Value> table) {
+    public Value evaluate(Map<String, Value> table, Map<Integer, Value> heap) {
         return value;
     }
 

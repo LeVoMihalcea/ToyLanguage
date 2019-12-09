@@ -11,7 +11,7 @@ public class RunCommand extends Command {
     @Override
     public void execute() {
         try{
-            ctrl.executeEverything();
+            ctrl.allStep();
         }
         catch (RuntimeException re) {
             System.out.println(re.getMessage());

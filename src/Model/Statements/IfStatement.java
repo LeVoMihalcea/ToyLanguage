@@ -7,7 +7,7 @@ import Model.Types.BoolType;
 import Model.Values.BoolValue;
 import Model.Values.Value;
 
-import java.util.Dictionary;
+import java.util.Map;
 import java.util.Stack;
 
 public class IfStatement implements IStatement{
@@ -54,24 +54,25 @@ public class IfStatement implements IStatement{
 
     public PrgState execute(PrgState state){
         Stack<IStatement> executionStack = state.getExecutionStack();
-        Dictionary<String, Value> symbolTable = state.getSymbolTable();
-        Value value = expression.evaluate(symbolTable);
+        Map<String, Value> symbolTable = state.getSymbolTable();
+        Value value = expression.evaluate(symbolTable, state.getHeap());
 
         if(value.getType().equals(new BoolType())){
             BoolValue condition = (BoolValue) value;
             if(condition.getValue()){
                 executionStack.push(thenStatement);
                 state.setExecutionStack(executionStack);
-                return state;
+//                return state;
             }
             else{
                 executionStack.push(elseStatement);
                 state.setExecutionStack(executionStack);
-                return state;
+//                return state;
             }
         }
         else{
             throw new SuperCoolException("Wrong conditional type!");
         }
+        return null;
     }
 }

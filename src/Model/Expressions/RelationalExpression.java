@@ -8,7 +8,7 @@ import Model.Values.IntValue;
 import Model.Values.Value;
 
 import java.text.MessageFormat;
-import java.util.Dictionary;
+import java.util.Map;
 
 public class RelationalExpression implements Expression{
     private Expression first;
@@ -46,9 +46,9 @@ public class RelationalExpression implements Expression{
     }
 
     @Override
-    public Value evaluate(Dictionary<String, Value> table) {
-        Value firstValue = first.evaluate(table);
-        Value secondValue = second.evaluate(table);
+    public Value evaluate(Map<String, Value> table, Map<Integer, Value> heap) {
+        Value firstValue = first.evaluate(table, heap);
+        Value secondValue = second.evaluate(table, heap);
 
         if(!firstValue.getType().equals(new IntType())){
             throw new SuperCoolException(MessageFormat.format("Value {0} - Expression {1} is not of Integer type!", firstValue, first));

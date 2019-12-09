@@ -10,11 +10,9 @@ import Model.Values.StringValue;
 import Model.Values.Value;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.text.MessageFormat;
-import java.util.Dictionary;
+import java.util.Map;
 import java.util.Stack;
 
 import static java.lang.Integer.parseInt;
@@ -55,21 +53,19 @@ public class ReadFileStatement implements IStatement {
             previous step.
          */
         Stack<IStatement> stack = state.getExecutionStack();
-        Dictionary<String, Value> symbolTable = state.getSymbolTable();
-        Dictionary<String, BufferedReader> fileTable = state.getFileTable();
-        Value value = expression.evaluate(state.getSymbolTable());
+        Map<String, Value> symbolTable = state.getSymbolTable();
+        Map<String, BufferedReader> fileTable = state.getFileTable();
+        Value value = expression.evaluate(state.getSymbolTable(), state.getHeap());
 
         StringValue filename = (StringValue)value;
 
         if(!filename.getType().equals(new StringType()))
             throw new SuperCoolException("Not a string!");
 
-        StringValue file = (StringValue)filename;
+        if(state.getFileTable().get(((StringValue)filename).getValue()) == null)
+            throw new SuperCoolException(MessageFormat.format("File {0} is not open!", ((StringValue)filename).getValue()));
 
-        if(state.getFileTable().get(file.getValue()) == null)
-            throw new SuperCoolException(MessageFormat.format("File {0} is not open!", file.getValue()));
-
-        BufferedReader bufferedReader = state.getFileTable().get(file.getValue());
+        BufferedReader bufferedReader = state.getFileTable().get(((StringValue)filename).getValue());
 
         if(state.getSymbolTable().get(varName) == null)
             throw new SuperCoolException(MessageFormat.format("Var {0} is not defined", varName));
@@ -90,7 +86,7 @@ public class ReadFileStatement implements IStatement {
             throw new SuperCoolException(ioe.getMessage());
         }
 
-        return state;
+        return null;
     }
 
     @Override

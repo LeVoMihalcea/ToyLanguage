@@ -29,7 +29,12 @@ public class RefValue implements Value {
     }
 
     @Override
+    public String toString() {
+        return "" + locationType + "->" + address;
+    }
+
+    @Override
     public Type getType() {
-        return new RefType(locationType);
+        return this.locationType;
     }
 }

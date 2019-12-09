@@ -6,7 +6,7 @@ import Model.PrgState;
 import Model.Types.Type;
 import Model.Values.Value;
 
-import java.util.Dictionary;
+import java.util.Map;
 import java.util.Stack;
 
 public class AssignmentStatement implements IStatement{
@@ -37,8 +37,8 @@ public class AssignmentStatement implements IStatement{
     @Override
     public PrgState execute(PrgState state) {
         Stack<IStatement> stack = state.getExecutionStack();
-        Dictionary<String, Value> symbolTable = state.getSymbolTable();
-        Value value = expression.evaluate(symbolTable);
+        Map<String, Value> symbolTable = state.getSymbolTable();
+        Value value = expression.evaluate(symbolTable, state.getHeap());
 
         if(symbolTable.get(id) != null){
             Type typeId = (symbolTable.get(id)).getType();
@@ -51,7 +51,7 @@ public class AssignmentStatement implements IStatement{
         }
         else throw new SuperCoolException("Referencing before declaration!");
 
-        return state;
+        return null;
     }
 
     @Override

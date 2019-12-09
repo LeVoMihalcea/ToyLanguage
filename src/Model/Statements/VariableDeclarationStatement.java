@@ -2,16 +2,13 @@ package Model.Statements;
 
 import Model.Exceptions.SuperCoolException;
 import Model.PrgState;
-import Model.Types.BoolType;
-import Model.Types.IntType;
-import Model.Types.StringType;
-import Model.Types.Type;
+import Model.Types.*;
 import Model.Values.BoolValue;
 import Model.Values.IntValue;
 import Model.Values.StringValue;
 import Model.Values.Value;
 
-import java.util.Dictionary;
+import java.util.Map;
 import java.util.Objects;
 
 public class VariableDeclarationStatement implements IStatement {
@@ -54,23 +51,17 @@ public class VariableDeclarationStatement implements IStatement {
 
     @Override
     public PrgState execute(PrgState state) {
-        Dictionary<String, Value> symbolTable = state.getSymbolTable();
+        Map<String, Value> symbolTable = state.getSymbolTable();
 
         if(symbolTable.get(name)==null){
-            if(type.equals(new IntType())){
-                symbolTable.put(name, Objects.requireNonNullElseGet(this.value, IntValue::defaultValue));
+            if(this.value != null){
+                symbolTable.put(this.name, this.value);
             }
-            if(type.equals(new StringType())){
-                symbolTable.put(name, Objects.requireNonNullElseGet(this.value, StringValue::defaultValue));
-            }
-            if(type.equals(new BoolType())){
-                symbolTable.put(name, Objects.requireNonNullElseGet(this.value, BoolValue::defaultValue));
-            }
-
+            else symbolTable.put(this.name, this.type.defaultValue());
         }
         else {
             throw new SuperCoolException("Variable already defined!");
         }
-        return state;
+        return null;
     }
 }

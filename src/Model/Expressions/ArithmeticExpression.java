@@ -5,7 +5,7 @@ import Model.Types.IntType;
 import Model.Values.IntValue;
 import Model.Values.Value;
 
-import java.util.Dictionary;
+import java.util.Map;
 
 //+, -, *, /
 public class ArithmeticExpression implements Expression{
@@ -44,12 +44,12 @@ public class ArithmeticExpression implements Expression{
     }
 
     @Override
-    public Value evaluate(Dictionary<String, Value> table) {
+    public Value evaluate(Map<String, Value> table, Map<Integer, Value> heap) {
         Value val1, val2;
-        val1 = expression1.evaluate(table);
+        val1 = expression1.evaluate(table, heap);
 
         if(val1.getType().equals(new IntType())){
-            val2 = expression2.evaluate(table);
+            val2 = expression2.evaluate(table, heap);
             if(val2.getType().equals(new IntType())) {
                 int number1, number2;
                 IntValue int1 = (IntValue) val1;

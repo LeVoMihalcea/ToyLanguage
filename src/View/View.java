@@ -39,7 +39,7 @@ public class View {
             input = scanner.nextLine();
             try{
                 if(input.equals("1")){
-                    controller.executeEverything();
+                    controller.allStep();
                 }
             }
             catch(SuperCoolException sce){
